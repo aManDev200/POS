@@ -1,144 +1,273 @@
 .brandScreen {
-  width: 100%;
-  height: 100vh;
-  padding: 2rem;
-  background-color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  height: 100%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
 }
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #ff6b00;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  color: #ff6b00;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #fff3e6;
 }
 
 .header h2 {
-  color: #ff6b00;
-  font-size: 1.8rem;
-  font-weight: 600;
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
   margin: 0;
 }
 
-.userInfo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #666;
-  font-size: 0.9rem;
+.amount {
+  position: absolute;
+  right: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ff6b00;
 }
 
-.userInfo span:nth-child(2) {
-  color: #ff6b00;
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.brandsSection,
+.offersSection,
+.tenureSection,
+.emiDetails {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.brandsSection h3,
+.offersSection h3,
+.tenureSection h3,
+.emiDetails h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.1rem;
 }
 
 .brandGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
 }
 
 .brandCard {
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 1.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 15px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.brandCard img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.brandCard span {
+  font-size: 0.9rem;
+  color: #333;
 }
 
 .brandCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.15);
   border-color: #ff6b00;
+  transform: translateY(-2px);
 }
 
-.brandLogo {
-  width: 120px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+.brandCard.selected {
+  border-color: #ff6b00;
+  background-color: #fff3e6;
+}
+
+.offerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.offerCard {
+  padding: 15px;
+  border: 1px solid #e9ecef;
   border-radius: 8px;
-  background: #f8f8f8;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.brandLogo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.offerCard h4 {
+  margin: 0 0 10px 0;
+  color: #ff6b00;
+  font-size: 1rem;
 }
 
-.brandInfo {
-  text-align: center;
+.offerCard p {
+  margin: 0 0 10px 0;
+  color: #666;
+  font-size: 0.9rem;
 }
 
-.brandInfo h3 {
-  margin: 0 0 0.5rem 0;
-  color: #333;
-  font-size: 1.2rem;
-}
-
-.categories {
+.offerDetails {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-}
-
-.category {
-  background: #fff3e6;
-  color: #ff6b00;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  gap: 10px;
   font-size: 0.8rem;
-  font-weight: 500;
 }
 
-.subtitle {
+.offerDetails span {
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 4px;
   color: #666;
-  font-size: 0.875rem;
-  margin: 0 0 10px 0;
 }
 
-.amount {
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #0d6efd;
-  background-color: #f8f9fa;
-  padding: 8px 16px;
-  border-radius: 20px;
-  display: inline-block;
+.offerCard:hover {
+  border-color: #ff6b00;
+  transform: translateY(-2px);
 }
 
-.backButton {
-  margin-top: auto;
+.offerCard.selected {
+  border-color: #ff6b00;
+  background-color: #fff3e6;
+}
+
+.tenureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.tenureCard {
+  padding: 10px;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.tenureCard:hover {
+  border-color: #ff6b00;
+  transform: translateY(-2px);
+}
+
+.tenureCard.selected {
+  border-color: #ff6b00;
+  background-color: #fff3e6;
+  color: #ff6b00;
+}
+
+.emiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.emiItem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.emiItem span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.emiItem strong {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.proceedButton {
+  width: 100%;
   padding: 12px;
-  background-color: #f8f9fa;
+  background-color: #ff6b00;
+  color: white;
   border: none;
-  border-radius: 8px;
-  color: #0d6efd;
+  border-radius: 6px;
   font-size: 1rem;
-  font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.backButton:hover {
-  background-color: #e9ecef;
+.proceedButton:hover {
+  background-color: #e65c00;
 }
 
-@media (max-width: 480px) {
+.loadingContainer,
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 15px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #ff6b00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.errorContainer button {
+  padding: 8px 16px;
+  background-color: #ff6b00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.errorContainer button:hover {
+  background-color: #e65c00;
+}
+
+@media (max-width: 768px) {
   .brandScreen {
     padding: 15px;
   }
@@ -147,16 +276,19 @@
     font-size: 1.25rem;
   }
 
+  .amount {
+    font-size: 1rem;
+  }
+
   .brandGrid {
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 
-  .brandCard {
-    padding: 10px;
+  .offerGrid {
+    grid-template-columns: 1fr;
   }
 
-  .brandLogo {
-    width: 60px;
-    height: 60px;
+  .emiGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 } 

@@ -20,6 +20,12 @@ const POSFrame: React.FC<POSFrameProps> = ({ children }) => {
           {children}
         </div>
         
+        {/* Card Slot */}
+        <div className={styles.cardSlot}></div>
+        
+        {/* Receipt Printer */}
+        <div className={styles.receiptSlot}></div>
+        
         {/* POS Machine Footer */}
         <div className={styles.posFooter}>
           <div className={styles.homeButton}></div>

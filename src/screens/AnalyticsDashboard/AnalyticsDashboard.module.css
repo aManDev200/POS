@@ -1,0 +1,179 @@
+.dashboardScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  color: #ff6b00;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #fff3e6;
+}
+
+.header h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ff6b00;
+  margin: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.statCard {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.statChange {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.statChange.positive {
+  color: #2e7d32;
+}
+
+.statChange.negative {
+  color: #d32f2f;
+}
+
+.chartGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chartCard {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chartCard h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.chartContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.chartRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.merchantInfo {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.fiservLogo {
+  height: 24px;
+  margin-bottom: 5px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chartRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboardScreen {
+    padding: 15px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .chartCard {
+    padding: 15px;
+  }
+
+  .header h2 {
+    font-size: 1.25rem;
+  }
+
+  .statValue {
+    font-size: 1.25rem;
+  }
+} 

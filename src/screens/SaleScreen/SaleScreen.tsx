@@ -1,97 +1,144 @@
 import React, { useState } from 'react';
 import { useAppContext } from '../../context/AppContext';
-import Numpad from '../../components/Numpad/Numpad';
+import { createTransaction } from '../../services/transactionService';
 import styles from './SaleScreen.module.css';
 
 const SaleScreen: React.FC = () => {
-  const { setCurrentScreen, setAmount, user } = useAppContext();
-  const [displayAmount, setDisplayAmount] = useState<string>('0');
-  const [error, setError] = useState<string>('');
+  const { setCurrentScreen, user } = useAppContext();
+  const [amount, setAmount] = useState<string>('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleNumberClick = (num: string) => {
-    setError('');
-    if (num === '.' && displayAmount.includes('.')) return;
-    
-    let newAmount = displayAmount;
-    if (displayAmount === '0' && num !== '.') {
-      newAmount = num;
+    if (amount === '0') {
+      setAmount(num);
     } else {
-      newAmount = displayAmount + num;
+      setAmount(prev => prev + num);
     }
-    
-    // Validate decimal places
-    const parts = newAmount.split('.');
-    if (parts[1] && parts[1].length > 2) return;
-    
-    // Maximum amount validation
-    if (parseFloat(newAmount) > 500000) {
-      setError('Amount cannot exceed ₹5,00,000');
-      return;
-    }
-    
-    setDisplayAmount(newAmount);
   };
 
   const handleClear = () => {
-    if (displayAmount.length <= 1) {
-      setDisplayAmount('0');
-    } else {
-      setDisplayAmount(prev => prev.slice(0, -1));
-    }
+    setAmount('');
     setError('');
   };
 
-  const handleEnter = () => {
-    const finalAmount = parseFloat(displayAmount);
-    if (finalAmount < 1000) {
-      setError('Minimum amount for EMI is ₹1,000');
-      return;
-    }
-    setAmount(finalAmount);
-    setCurrentScreen('brand');
+  const handleBackspace = () => {
+    setAmount(prev => prev.slice(0, -1));
+    setError('');
   };
 
-  const formatAmount = (amount: string): string => {
-    const number = parseFloat(amount);
-    if (isNaN(number)) return '₹0';
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 2,
-    }).format(number);
+  const handleProceed = async () => {
+    if (!amount || parseFloat(amount) <= 0) {
+      setError('Please enter a valid amount');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const transaction = await createTransaction(
+        user?.merchantId || '',
+        parseFloat(amount),
+        'REGULAR'
+      );
+
+      if (transaction) {
+        setCurrentScreen('brand');
+      }
+    } catch (err) {
+      setError('Failed to process transaction. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatAmount = (value: string): string => {
+    const numericValue = value.replace(/[^0-9]/g, '');
+    if (!numericValue) return '₹0';
+    return `₹${parseInt(numericValue).toLocaleString('en-IN')}`;
   };
 
   return (
     <div className={styles.saleScreen}>
       <div className={styles.header}>
+        <button 
+          className={styles.backButton}
+          onClick={() => setCurrentScreen('dashboard')}
+        >
+          ← Back
+        </button>
         <h2>Enter Sale Amount</h2>
-        <p className={styles.subtitle}>Enter the total purchase amount</p>
       </div>
 
-      <div className={styles.amountDisplay}>
-        <div className={styles.amount}>{formatAmount(displayAmount)}</div>
-        {error && <p className={styles.error}>{error}</p>}
-      </div>
-
-      <div className={styles.info}>
-        <div className={styles.infoItem}>
-          <span className={styles.label}>Min Amount</span>
-          <span className={styles.value}>₹1,000</span>
+      <div className={styles.content}>
+        <div className={styles.amountDisplay}>
+          <span className={styles.amount}>{formatAmount(amount)}</span>
+          {error && <p className={styles.error}>{error}</p>}
         </div>
-        <div className={styles.infoItem}>
-          <span className={styles.label}>Max Amount</span>
-          <span className={styles.value}>₹5,00,000</span>
+
+        <div className={styles.numpad}>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
+            <button
+              key={num}
+              className={styles.numpadButton}
+              onClick={() => handleNumberClick(num.toString())}
+              disabled={loading}
+            >
+              {num}
+            </button>
+          ))}
+          <button
+            className={styles.numpadButton}
+            onClick={() => handleClear()}
+            disabled={loading}
+          >
+            C
+          </button>
+          <button
+            className={styles.numpadButton}
+            onClick={() => handleNumberClick('0')}
+            disabled={loading}
+          >
+            0
+          </button>
+          <button
+            className={styles.numpadButton}
+            onClick={() => handleBackspace()}
+            disabled={loading}
+          >
+            ←
+          </button>
         </div>
+
+        <button
+          className={styles.proceedButton}
+          onClick={handleProceed}
+          disabled={loading || !amount}
+        >
+          {loading ? (
+            <>
+              <span className={styles.spinner}></span>
+              Processing...
+            </>
+          ) : (
+            'Proceed'
+          )}
+        </button>
       </div>
 
-      <div className={styles.numpadContainer}>
-        <Numpad
-          onNumberClick={handleNumberClick}
-          onClear={handleClear}
-          onEnter={handleEnter}
-          showDot={true}
+      <div className={styles.footer}>
+        <div className={styles.merchantInfo}>
+          <span>{user?.name}</span>
+          <span>|</span>
+          <span>ID: {user?.merchantId}</span>
+        </div>
+        <img 
+          src="/images/Fiserv_logo.svg.png" 
+          alt="Fiserv" 
+          className={styles.fiservLogo}
         />
+        <p>Powered by Fiserv</p>
       </div>
     </div>
   );

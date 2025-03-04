@@ -10,14 +10,17 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "node -e \"try { require('fs').copyFileSync('db.json', 'db.backup.json') } catch(e) {}\"",
-    "server": "json-server --watch db.json --port 3001"
+    "server": "json-server --watch db.json --port 3001",
+    "mock-api": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
+    "@types/recharts": "^1.8.29",
     "axios": "^1.6.7",
     "concurrently": "^8.2.2",
     "next": "14.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "recharts": "^2.15.1"
   },
   "devDependencies": {
     "@types/json-server": "^0.14.7",

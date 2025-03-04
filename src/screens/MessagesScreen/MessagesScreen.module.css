@@ -1,0 +1,281 @@
+.messagesScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  color: #ff6b00;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #fff3e6;
+}
+
+.header h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: #666;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tab:hover {
+  background-color: #fff3e6;
+  color: #ff6b00;
+}
+
+.tab.active {
+  background-color: #ff6b00;
+  color: white;
+}
+
+.tab.active:hover {
+  background-color: #e65c00;
+}
+
+.badge {
+  background: #ff4d4d;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px;
+}
+
+.markAllButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #ff6b00;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.markAllButton:hover {
+  background-color: #e65c00;
+}
+
+.markAllButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.messageList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 10px;
+}
+
+.messageCard {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.messageCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.messageCard.unread {
+  border-left: 4px solid #ff6b00;
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.messageHeader h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.priority {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.priority.high {
+  background-color: #ffebeb;
+  color: #ff4d4d;
+}
+
+.priority.medium {
+  background-color: #fff3e6;
+  color: #ff6b00;
+}
+
+.priority.low {
+  background-color: #e6f3ff;
+  color: #0066cc;
+}
+
+.messageCard p {
+  margin: 0 0 10px 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.messageFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.unreadDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff6b00;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 20px;
+  background: #ffebeb;
+  border-radius: 8px;
+  margin: 0 10px;
+}
+
+.error p {
+  color: #ff4d4d;
+  margin: 0 0 10px 0;
+}
+
+.error button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background: #ff4d4d;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.error button:hover {
+  background-color: #ff3333;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 15px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #ff6b00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .messagesScreen {
+    padding: 15px;
+  }
+
+  .header h2 {
+    font-size: 1.25rem;
+  }
+
+  .tab {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .messageCard {
+    padding: 12px;
+  }
+
+  .messageHeader h3 {
+    font-size: 1rem;
+  }
+} 

@@ -1,7 +1,19 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { getCurrentUser } from '../services/authService';
 
-type Screen = 'login' | 'sale' | 'payment' | 'brand' | 'success';
+type Screen = 
+  | 'login' 
+  | 'sale' 
+  | 'payment' 
+  | 'brand' 
+  | 'dashboard'
+  | 'merchant'
+  | 'statements'
+  | 'messages'
+  | 'business'
+  | 'additional'
+  | 'analytics'
+  | 'success';
 
 interface User {
   id: number;

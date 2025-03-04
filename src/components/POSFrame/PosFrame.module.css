@@ -1,115 +1,179 @@
 .posFrameContainer {
   width: 100%;
-  max-width: 375px;
-  perspective: 1000px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #fff5ec, #fff9f5);
+  padding: 40px;
+  overflow: hidden;
 }
 
 .posFrame {
   width: 100%;
-  height: 667px;
-  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-  border-radius: 40px;
-  padding: 20px;
-  position: relative;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    inset 0 2px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+  max-width: 520px;
+  height: 720px;
+  background: #333333;
+  border-radius: 15px;
+  padding: 25px 20px;
   display: flex;
   flex-direction: column;
-  transform-style: preserve-3d;
-  transform: rotateX(5deg);
+  position: relative;
+  border: 1px solid #444;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  margin: 20px;
+  box-shadow: 0 0 40px rgba(255, 107, 0, 0.05);
 }
 
 .posHeader {
-  height: 60px;
+  height: 50px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin-bottom: 15px;
   position: relative;
-  margin-bottom: 10px;
+  background: linear-gradient(to bottom, #2a2a2a, #222);
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .camera {
-  width: 12px;
-  height: 12px;
-  background: #000;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(145deg, #666, #444);
   border-radius: 50%;
   position: absolute;
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 
-    inset 0 0 2px #000,
-    0 0 0 2px rgba(255, 255, 255, 0.1);
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .speaker {
-  width: 60px;
-  height: 6px;
-  background: #000;
-  border-radius: 3px;
-  position: absolute;
-  top: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 4px;
+  background: linear-gradient(to bottom, #444, #333);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .screen {
   flex: 1;
-  background-color: var(--background-light);
-  border-radius: 20px;
-  padding: 15px;
-  overflow: hidden;
+  background-color: white;
+  border-radius: 10px;
   position: relative;
-  box-shadow: 
-    inset 0 2px 4px rgba(0, 0, 0, 0.1),
-    0 0 0 2px rgba(255, 255, 255, 0.05);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.screen::-webkit-scrollbar {
+  width: 6px;
+}
+
+.screen::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.screen::-webkit-scrollbar-thumb {
+  background: #ff6b00;
+  border-radius: 3px;
+}
+
+.screen::-webkit-scrollbar-thumb:hover {
+  background: #e65100;
 }
 
 .posFooter {
-  height: 60px;
+  height: 70px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  justify-content: center;
+  margin-top: 15px;
+  background: linear-gradient(to bottom, #2a2a2a, #222);
+  border-radius: 35px;
+  padding: 10px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .homeButton {
-  width: 50px;
-  height: 50px;
-  border: 3px solid #333;
+  width: 45px;
+  height: 45px;
+  border: 2px solid #444;
   border-radius: 50%;
   position: relative;
-  cursor: pointer;
-  background: linear-gradient(145deg, #222, #1a1a1a);
+  background: linear-gradient(145deg, #333, #222);
   box-shadow: 
-    inset 0 2px 0 rgba(255, 255, 255, 0.1),
-    0 2px 4px rgba(0, 0, 0, 0.2);
+    inset 0 1px 3px rgba(255, 255, 255, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .homeButton::after {
   content: '';
-  width: 15px;
-  height: 15px;
-  border: 2px solid #444;
-  border-radius: 3px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid #555;
+  border-radius: 4px;
 }
 
-@media (max-width: 480px) {
+/* Card slot styling */
+.cardSlot {
+  position: absolute;
+  right: -5px;
+  top: 120px;
+  width: 25px;
+  height: 6px;
+  background: linear-gradient(to bottom, #222, #111);
+  border-radius: 0 3px 3px 0;
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.5),
+    0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Receipt printer slot styling */
+.receiptSlot {
+  position: absolute;
+  right: -5px;
+  top: 200px;
+  width: 25px;
+  height: 1px;
+  background: linear-gradient(to bottom, #222, #111);
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.5),
+    0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Remove the base stand styling */
+.posFrame::after {
+  display: none;
+}
+
+@media (max-width: 640px) {
   .posFrameContainer {
-    max-width: 100%;
-    height: 100vh;
+    padding: 0;
   }
 
   .posFrame {
+    max-width: 100%;
     height: 100vh;
     border-radius: 0;
-    transform: none;
+  }
+  
+  .posFrame::after,
+  .cardSlot,
+  .receiptSlot {
+    display: none;
+  }
+
+  .screen {
+    border-radius: 8px;
   }
 }

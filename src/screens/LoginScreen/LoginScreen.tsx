@@ -32,7 +32,7 @@ const LoginScreen: React.FC = () => {
       if (response.success && response.user) {
         setCurrentUser(response.user);
         setUser(response.user);
-        setCurrentScreen('brand');
+        setCurrentScreen('dashboard');
       } else {
         setError(response.error || 'Login failed');
       }
@@ -48,7 +48,7 @@ const LoginScreen: React.FC = () => {
       <div className={styles.loginScreen}>
         <div className={styles.header}>
           <img 
-            src="/images/fiserv-logo.png" 
+            src="/images/Fiserv_logo.svg.png" 
             alt="Fiserv Logo" 
             className={styles.logo}
           />
