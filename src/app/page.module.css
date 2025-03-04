@@ -1,0 +1,78 @@
+.appContainer {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+  padding: 20px;
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .appContainer {
+    padding: 0;
+  }
+}
+
+.sidebar {
+  width: 250px;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.printerNotification {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.printerIcon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.printerText h3 {
+  font-size: 16px;
+  margin: 0 0 5px 0;
+}
+
+.printerText p {
+  font-size: 12px;
+  color: #777;
+  margin: 0;
+}
+
+.skipPrintingBtn {
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tryAgainBtn {
+  margin-top: 10px;
+  padding: 8px;
+  border: none;
+  background-color: #ff5722;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}

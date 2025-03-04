@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "merchant1",
+      "password": "1234",
+      "name": "John Doe",
+      "merchantId": "M001",
+      "storeLocation": "Mumbai Central"
+    },
+    {
+      "id": 2,
+      "username": "merchant2",
+      "password": "5678",
+      "name": "Jane Smith",
+      "merchantId": "M002",
+      "storeLocation": "Delhi NCR"
+    }
+  ],
+  "transactions": [],
+  "brands": [
+    {
+      "id": "samsung",
+      "name": "Samsung",
+      "logo": "/images/samsung-logo.png",
+      "categories": ["Mobile", "TV", "Appliances"]
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "logo": "/images/apple-logo.png",
+      "categories": ["iPhone", "iPad", "MacBook"]
+    },
+    {
+      "id": "sony",
+      "name": "Sony",
+      "logo": "/images/sony-logo.png",
+      "categories": ["TV", "Audio", "PlayStation"]
+    },
+    {
+      "id": "lg",
+      "name": "LG",
+      "logo": "/images/lg-logo.png",
+      "categories": ["TV", "Appliances", "Mobile"]
+    }
+  ]
+} 

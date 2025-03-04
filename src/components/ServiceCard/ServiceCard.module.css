@@ -1,0 +1,42 @@
+/* src/components/ServiceCard/ServiceCard.module.css */
+.serviceCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .serviceCard:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+  }
+  
+  .iconContainer {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .icon {
+    font-size: 20px;
+  }
+  
+  .serviceName {
+    font-size: 12px;
+    text-align: center;
+    color: #343a40;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }

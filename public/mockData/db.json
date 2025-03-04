@@ -1,0 +1,25 @@
+{
+    "merchants": [
+      {
+        "id": "123456789123456",
+        "name": "Tom",
+        "terminalId": "11234567",
+        "deviceName": "ASPT0002"
+      }
+    ],
+    "brands": [
+      { "id": 1, "name": "SAMSUNG", "logo": "/images/samsung-logo.png" },
+      { "id": 2, "name": "SONY", "logo": "/images/sony-logo.png" },
+      { "id": 3, "name": "MI", "logo": "/images/mi-logo.png" }
+    ],
+    "services": [
+      { "id": 1, "name": "Pre-authorization", "icon": "shield" },
+      { "id": 2, "name": "Cancellation", "icon": "x-circle" },
+      { "id": 3, "name": "Refund", "icon": "refresh-cw" },
+      { "id": 4, "name": "Other Services", "icon": "more-horizontal" },
+      { "id": 5, "name": "Transactions", "icon": "list" },
+      { "id": 6, "name": "Duplicate receipts", "icon": "copy" },
+      { "id": 7, "name": "Total reports", "icon": "file-text" },
+      { "id": 8, "name": "NTMS Agent", "icon": "user" }
+    ]
+  }
