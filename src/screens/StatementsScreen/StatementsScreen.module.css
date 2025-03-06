@@ -1,0 +1,154 @@
+.statementsScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  background: #ff6b00;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(255, 107, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: #e65c00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
+}
+
+.header h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filterSection {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px;
+}
+
+.filterSelect {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #333;
+  background: white;
+  cursor: pointer;
+}
+
+.statementsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.statementItem {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.statementHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.statementHeader h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.statementDetails {
+  margin-bottom: 15px;
+}
+
+.statementDetails p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.downloadButton {
+  background: #ff6b00;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.downloadButton:hover {
+  background: #e65c00;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .statementsScreen {
+    padding: 10px;
+  }
+
+  .header h2 {
+    font-size: 1.25rem;
+  }
+
+  .backButton {
+    padding: 6px 12px;
+    font-size: 1.1rem;
+  }
+
+  .statementItem {
+    padding: 15px;
+  }
+
+  .statementHeader h3 {
+    font-size: 1rem;
+  }
+
+  .downloadButton {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+} 

@@ -1,0 +1,330 @@
+.giftCardScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  background: #ff6b00;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(255, 107, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.backButton:hover:not(:disabled) {
+  background: #e65c00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
+}
+
+.backButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.header h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.amount {
+  position: absolute;
+  right: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ff6b00;
+  background: #fff3e6;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 10px;
+}
+
+.cardEntryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.giftCardIcon {
+  font-size: 3rem;
+  margin-bottom: 5px;
+}
+
+.cardEntryContainer h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.inputGroup {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  gap: 10px;
+}
+
+.giftCardInput {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.giftCardInput:focus {
+  border-color: #ff6b00;
+  outline: none;
+}
+
+.giftCardInput:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.verifyButton {
+  padding: 0 20px;
+  background-color: #ff6b00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+}
+
+.verifyButton:hover:not(:disabled) {
+  background-color: #e65c00;
+}
+
+.verifyButton:disabled {
+  background-color: #ffab91;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #e53935;
+  background: #ffebee;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.cardDetails {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: #f1f8e9;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #c5e1a5;
+}
+
+.cardBalance, .cardExpiry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardBalance span, .cardExpiry span {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.cardBalance strong, .cardExpiry strong {
+  color: #2e7d32;
+  font-size: 1.1rem;
+}
+
+.applyButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.applyButton:hover:not(:disabled) {
+  background-color: #388e3c;
+}
+
+.applyButton:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+.balanceWarning {
+  color: #f57c00;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.instructions {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.instructions h3 {
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+}
+
+.instructions ol {
+  margin: 0 0 15px 0;
+  padding-left: 20px;
+}
+
+.instructions li {
+  color: #666;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.tip {
+  background: #fff3e6;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #e65c00;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.processingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.processingOverlay p {
+  color: #333;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #ff6b00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .giftCardScreen {
+    padding: 15px;
+  }
+
+  .header h2 {
+    font-size: 1.25rem;
+  }
+
+  .amount {
+    font-size: 1rem;
+    padding: 4px 10px;
+  }
+
+  .content {
+    padding: 5px;
+    gap: 15px;
+  }
+
+  .cardEntryContainer {
+    padding: 20px 15px;
+  }
+
+  .giftCardIcon {
+    font-size: 2.5rem;
+  }
+
+  .cardEntryContainer h3 {
+    font-size: 1.1rem;
+  }
+
+  .inputGroup {
+    flex-direction: column;
+  }
+
+  .giftCardInput, .verifyButton {
+    width: 100%;
+  }
+
+  .verifyButton {
+    padding: 10px;
+  }
+
+  .cardDetails {
+    padding: 15px;
+  }
+
+  .instructions h3 {
+    font-size: 1.1rem;
+  }
+} 

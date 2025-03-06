@@ -1,0 +1,182 @@
+.successScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.successIcon {
+  width: 60px;
+  height: 60px;
+  background: #4caf50;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  animation: scaleIn 0.3s ease-out;
+}
+
+.content h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+.transactionDetails {
+  width: 100%;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+}
+
+.detailRow span {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.detailRow .amount {
+  color: #ff6b00;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.status {
+  color: #4caf50 !important;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.printButton,
+.newTransactionButton,
+.dashboardButton {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.printButton {
+  background: #ff6b00;
+  color: white;
+}
+
+.printButton:hover {
+  background: #e65c00;
+  transform: translateY(-2px);
+}
+
+.newTransactionButton {
+  background: #4caf50;
+  color: white;
+}
+
+.newTransactionButton:hover {
+  background: #43a047;
+  transform: translateY(-2px);
+}
+
+.dashboardButton {
+  background: #f8f9fa;
+  color: #666;
+  border: 1px solid #e9ecef;
+}
+
+.dashboardButton:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .successScreen {
+    padding: 15px;
+  }
+
+  .content {
+    padding: 20px 15px;
+  }
+
+  .successIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .content h2 {
+    font-size: 1.25rem;
+  }
+
+  .transactionDetails {
+    padding: 15px;
+  }
+
+  .detailRow span {
+    font-size: 0.9rem;
+  }
+
+  .detailRow .amount {
+    font-size: 1rem;
+  }
+
+  .actions {
+    max-width: 250px;
+  }
+
+  .printButton,
+  .newTransactionButton,
+  .dashboardButton {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+} 

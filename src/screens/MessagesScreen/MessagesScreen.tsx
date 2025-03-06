@@ -68,7 +68,7 @@ const MessagesScreen: React.FC = () => {
           className={styles.backButton}
           onClick={() => setCurrentScreen('dashboard')}
         >
-          ← Back
+          ←
         </button>
         <h2>Messages</h2>
       </div>

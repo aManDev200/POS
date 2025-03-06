@@ -57,7 +57,7 @@ const AnalyticsDashboard: React.FC = () => {
           className={styles.backButton} 
           onClick={() => setCurrentScreen('dashboard')}
         >
-          ← Back
+          ← 
         </button>
         <h2>Analytics Dashboard</h2>
       </div>

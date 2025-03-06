@@ -17,18 +17,24 @@
 .backButton {
   position: absolute;
   left: 0;
-  background: none;
+  background: #ff6b00;
   border: none;
-  color: #ff6b00;
-  font-size: 1.1rem;
+  color: white;
+  font-size: 1.2rem;
   cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(255, 107, 0, 0.3);
   transition: all 0.2s ease;
 }
 
 .backButton:hover {
-  background-color: #fff3e6;
+  background: #e65c00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
 }
 
 .header h2 {
@@ -278,4 +284,26 @@
   .messageHeader h3 {
     font-size: 1rem;
   }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.fiservLogo {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.footer p {
+  margin: 0;
+  color: #999;
+  font-size: 0.8rem;
 } 

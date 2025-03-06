@@ -16,7 +16,7 @@ const menuItems = [
     description: 'View sales and performance metrics'
   },
   {
-    id: 'brand',
+    id: 'brandSelection',
     icon: '🏷️',
     title: 'Brand EMI',
     description: 'Manage brand-specific EMI options'
@@ -28,10 +28,16 @@ const menuItems = [
     description: 'Access your financial documents'
   },
   {
-    id: 'sale',
+    id: 'paymentOptions',
     icon: '💳',
-    title: 'Sale',
+    title: 'Pay Now',
     description: 'Process new transactions'
+  },
+  {
+    id: 'transactions',
+    icon: '📋',
+    title: 'Recent Transactions',
+    description: 'View transaction history'
   },
   {
     id: 'messages',
@@ -57,7 +63,23 @@ const DashboardScreen: React.FC = () => {
   const { setCurrentScreen, user, setUser } = useAppContext();
 
   const handleMenuClick = (menuId: string) => {
-    setCurrentScreen(menuId);
+    // Map menu IDs to screen types
+    const screenMap: { [key: string]: string } = {
+      merchant: 'merchant',
+      analytics: 'analytics',
+      brandSelection: 'brandSelection',
+      statements: 'statements',
+      paymentOptions: 'paymentOptions',
+      transactions: 'transactions',
+      messages: 'messages',
+      business: 'business',
+      additional: 'additional'
+    };
+
+    const targetScreen = screenMap[menuId];
+    if (targetScreen) {
+      setCurrentScreen(targetScreen as any);
+    }
   };
 
   const handleSignOut = () => {
@@ -68,11 +90,12 @@ const DashboardScreen: React.FC = () => {
   return (
     <div className={styles.dashboardScreen}>
       <div className={styles.header}>
-        <h2>Welcome, {user?.name}</h2>
-        <p className={styles.subtitle}>Select an option to proceed</p>
-        <button className={styles.signOutButton} onClick={handleSignOut}>
-          Sign Out
-        </button>
+        <div className={styles.headerContent}>
+          <div className={styles.merchantName}>{user?.name}</div>
+          <button className={styles.signOutButton} onClick={handleSignOut}>
+            Sign Out
+          </button>
+        </div>
       </div>
 
       <div className={styles.menuGrid}>
@@ -89,23 +112,6 @@ const DashboardScreen: React.FC = () => {
             </div>
           </button>
         ))}
-      </div>
-
-      <div className={styles.merchantInfo}>
-        <div className={styles.infoGrid}>
-          <div className={styles.infoItem}>
-            <span className={styles.label}>Merchant ID</span>
-            <span className={styles.value}>{user?.merchantId}</span>
-          </div>
-          <div className={styles.infoItem}>
-            <span className={styles.label}>Terminal ID</span>
-            <span className={styles.value}>{user?.terminalId || 'T001'}</span>
-          </div>
-          <div className={styles.infoItem}>
-            <span className={styles.label}>Location</span>
-            <span className={styles.value}>{user?.location || 'Main Branch'}</span>
-          </div>
-        </div>
       </div>
 
       <div className={styles.footer}>

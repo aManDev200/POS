@@ -1,124 +1,84 @@
-.numpadContainer {
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  .numpadGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .numKey {
-    background-color: #f8f9fa;
-    border: none;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .numKey:hover {
-    background-color: #e9ecef;
-  }
-  
-  .confirmButton {
-    width: 100%;
-    background-color: #ff5722;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .confirmButton:hover {
-    background-color: #e64a19;
-  }
-
-.numpad {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  padding: 15px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
+.numPadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
-  z-index: 10;
-  position: relative;
+  max-width: 400px;
 }
 
-.numpadButton {
-  aspect-ratio: 1;
-  border: 1px solid #e9ecef;
-  background-color: white;
-  font-size: 1.5rem;
+.title {
+  font-size: 1.2rem;
+  color: #333;
   font-weight: 500;
+  text-align: center;
+}
+
+.display {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  text-align: right;
+  width: 100%;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.numPad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.numPad button {
+  padding: 15px;
+  font-size: 1.2rem;
+  border: 1px solid #e9ecef;
+  background: white;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  min-height: 60px;
-  pointer-events: all !important;
-  z-index: 11;
 }
 
-.numpadButton:hover {
-  background-color: #ff6b00;
-  color: white;
+.numPad button:hover {
+  background: #f8f9fa;
   border-color: #ff6b00;
-  transform: translateY(-1px);
 }
 
-.numpadButton:active {
-  transform: translateY(1px);
-}
-
-.clear {
-  color: #ff6b00;
-}
-
-.clear:hover {
-  background-color: #ff6b00;
-  color: white;
-}
-
-.enter {
+.enterButton {
   grid-column: span 3;
-  aspect-ratio: auto;
-  background-color: #ff6b00;
+  background: #ff6b00 !important;
   color: white;
-  font-size: 1rem;
-  height: 50px;
-  border: none;
+  border: none !important;
+  font-weight: 500;
 }
 
-.enter:hover {
-  background-color: #e65100;
+.enterButton:hover {
+  background: #e65c00 !important;
 }
 
 @media (max-width: 480px) {
-  .numpad {
-    gap: 6px;
-    padding: 10px;
+  .numPadContainer {
+    padding: 15px;
   }
 
-  .numpadButton {
-    font-size: 1.25rem;
-    min-height: 50px;
+  .title {
+    font-size: 1.1rem;
   }
 
-  .enter {
-    height: 45px;
+  .display {
+    font-size: 1.8rem;
+  }
+
+  .numPad button {
+    padding: 12px;
+    font-size: 1.1rem;
   }
 }

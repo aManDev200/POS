@@ -151,7 +151,7 @@ const PaymentScreen: React.FC = () => {
           onClick={() => setCurrentScreen('brand')}
           disabled={processing}
         >
-          Back
+          ←
         </button>
         <button
           className={styles.payButton}

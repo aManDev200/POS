@@ -4,10 +4,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: white;
+  background: #f8f9fa;
   padding: 20px;
   position: relative;
   overflow: hidden;
+}
+
+.appWrapper {
+  width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 @media (max-width: 480px) {

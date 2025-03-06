@@ -66,7 +66,7 @@ const SaleScreen: React.FC = () => {
           className={styles.backButton}
           onClick={() => setCurrentScreen('dashboard')}
         >
-          ← Back
+          ←
         </button>
         <h2>Enter Sale Amount</h2>
       </div>

@@ -1,0 +1,169 @@
+.paymentScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  background: #ff6b00;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(255, 107, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: #e65c00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
+}
+
+.header h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.amount {
+  position: absolute;
+  right: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ff6b00;
+  background: #fff3e6;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.amountInput {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 10px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.optionCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  background: white;
+  border: 2px solid;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.optionCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.optionIcon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.optionName {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.optionDescription {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.optionArrow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  color: white;
+  font-size: 1.2rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.optionCard:hover .optionArrow {
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .paymentScreen {
+    padding: 15px;
+  }
+
+  .header h2 {
+    font-size: 1.25rem;
+  }
+
+  .amount {
+    font-size: 1rem;
+    padding: 4px 10px;
+  }
+
+  .optionsGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .optionCard {
+    padding: 20px;
+  }
+
+  .optionIcon {
+    font-size: 2rem;
+  }
+} 

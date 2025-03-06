@@ -1,0 +1,166 @@
+.transactionsScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  background: #ff6b00;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(255, 107, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: #e65c00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
+}
+
+.header h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 5px;
+}
+
+.transactionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.transactionItem {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+}
+
+.transactionHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.transactionId {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.transactionDate {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.transactionDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.transactionAmount {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ff6b00;
+}
+
+.transactionStatus {
+  font-size: 0.9rem;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.transactionStatus.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.transactionStatus.failed {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.transactionFooter {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.transactionType {
+  text-transform: capitalize;
+}
+
+.customerPhone {
+  color: #666;
+}
+
+.noTransactions {
+  text-align: center;
+  color: #666;
+  padding: 40px 20px;
+  font-size: 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 480px) {
+  .transactionsScreen {
+    padding: 10px;
+  }
+
+  .header h2 {
+    font-size: 1.25rem;
+  }
+
+  .backButton {
+    padding: 6px 12px;
+    font-size: 1.1rem;
+  }
+
+  .transactionItem {
+    padding: 12px;
+  }
+
+  .transactionAmount {
+    font-size: 1.1rem;
+  }
+
+  .transactionStatus {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+} 

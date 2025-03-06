@@ -9,7 +9,7 @@ const MerchantScreen: React.FC = () => {
     <div className={styles.merchantScreen}>
       <div className={styles.header}>
         <button className={styles.backButton} onClick={() => setCurrentScreen('dashboard')}>
-          ← Back
+          ←
         </button>
         <h2>Merchant Information</h2>
       </div>
