@@ -66,6 +66,32 @@
   animation: fadeIn 0.3s ease-out;
 }
 
+.amountDisplay {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.amountLabel {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.amountValue {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.optionsContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
 .optionsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -154,6 +180,15 @@
     padding: 4px 10px;
   }
 
+  .amountDisplay {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .amountValue {
+    font-size: 1.75rem;
+  }
+
   .optionsGrid {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -165,5 +200,9 @@
 
   .optionIcon {
     font-size: 2rem;
+  }
+
+  .optionName {
+    font-size: 1.1rem;
   }
 } 
